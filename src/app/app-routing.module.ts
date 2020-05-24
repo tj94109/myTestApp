@@ -9,6 +9,11 @@ const routes: Routes = [
 
   { path: "", component: AuthComponent},
   { path: "home", component: HomeComponent, canActivate: [AuthGuardService]},
+
+  { path: 'apples', loadChildren: () => import('./apples/apples.module').then(m => m.ApplesModule) },
+
+  { path: 'oranges', loadChildren: () => import('./oranges/oranges.module').then(m => m.OrangesModule) },
+  
   { path: "**", redirectTo: ""}
 
 ];
